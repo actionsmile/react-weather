@@ -22,16 +22,6 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
-  test:
-    docker:
-      - image: node:8.0
-    steps:
-      - run:
-          name: "Checking Versions"
-          command: |
-            node --version
-            npm --version
-      - checkout
       - run:
           name: Install Yarn
           command: npm install -g yarn
@@ -41,12 +31,6 @@ jobs:
 
 workflows:
   version: 2
-  build_and_test:
+  test:
     jobs:
       - build
-      - test:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
