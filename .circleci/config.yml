@@ -9,7 +9,6 @@ jobs:
           command: |
             node --version
             npm --version
-    steps:
       - checkout
       - run:
           name: Install Yarn
@@ -27,9 +26,17 @@ jobs:
     docker:
       - image: node:8.0
     steps:
+      - run:
+          name: "Checking Versions"
+          command: |
+            node --version
+            npm --version
       - checkout
       - run:
-          name: Test
+          name: Install Yarn
+          command: npm install -g yarn
+      - run:
+          name: Testing
           command: yarn test
 
 workflows:
