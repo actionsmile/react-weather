@@ -9,8 +9,6 @@ jobs:
           command: |
             node --version
             npm --version
-
-    working_directory: $CIRCLE_WORKING_DIRECTORY
     steps:
       - checkout
       - restore_cache:
