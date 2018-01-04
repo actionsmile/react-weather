@@ -11,23 +11,26 @@ jobs:
             npm --version
     steps:
       - checkout
+      - run:
+          name: Install Yarn
+          command: npm install -g yarn
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: Install npm wee
-          command: npm install
+          name: Install dependencies
+          command: yarn
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
   test:
     docker:
-      - image: circleci/node:8.2.0
+      - image: node:8.0
     steps:
       - checkout
       - run:
           name: Test
-          command: npm test
+          command: yarn test
 
 workflows:
   version: 2
