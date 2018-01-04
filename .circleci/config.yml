@@ -14,12 +14,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Download 8.x node
-          command: 'curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -'
-      - run:
-          name: Install Node.JS
-          command: 'sudo apt-get install -y nodejs'
-      - run:
           name: Update npm
           command: 'sudo npm install -g npm@latest'
       - restore_cache:
