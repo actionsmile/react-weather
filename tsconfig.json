@@ -5,10 +5,12 @@
         "removeComments": true,
         "preserveConstEnums": true,
         "sourceMap": true,
+        "baseUrl": "src",
         "jsx": "react"
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "__tests__/**/*"
     ],
     "exclude": [
         "node_modules",
