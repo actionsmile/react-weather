@@ -15,23 +15,22 @@ export const init = {
     }
 }
 
-export const counter = (state: IAppState, action: IBasicAction) => {
+export const counter = (state: IAppState, action: IBasicAction): IAppState => {
     state = state || init.state;
-    let result = {};
+    let result: IAppState;
     switch (action.type) {
         case EBasicActionType.INCREMENT:
             result = {
                 ...state,
-                counter: state.counter += action.value
-            };
+                counter: state.counter + 1
+            }
             break;
         case EBasicActionType.DECREMENT:
-            result = {
-                ...state,
-                counter: state.counter -= action.value
-            }
+        result = {
+            ...state,
+            counter: state.counter - 1
+        }
         default:
-            result = { ...state };
             break;
     }
 
