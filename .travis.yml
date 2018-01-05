@@ -7,3 +7,6 @@ cache:
   directories:
     - "node_modules"
 install: yarn
+script:
+  - yarn lint
+  - yarn test
