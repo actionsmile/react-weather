@@ -1,7 +1,7 @@
 # Weather App
 [![supported by Scriptor](https://www.scriptor.me/badges/support.svg)](https://www.scriptor.me) [![Build Status](https://travis-ci.org/actionsmile/react-weather.svg?branch=master)](https://travis-ci.org/actionsmile/react-weather) [![CircleCI](https://circleci.com/gh/actionsmile/react-weather/tree/master.svg?style=svg)](https://circleci.com/gh/actionsmile/react-weather/tree/master)
 ---
-This app is just an example of usage [React](https://wwww.reactjs.org), [Redux](https://redux.js.org/) and [Typyscript](https://www.typescriptlang.org) power. It uses [OpenWeatherAPI](https://www.openweathermap.org/api) as a data-provider, so you can learn how to use external services, Promises and so on…
+This app is just an example of usage [React](https://wwww.reactjs.org), [Redux](https://redux.js.org/) and [Typescript](https://www.typescriptlang.org) power. It uses [OpenWeatherAPI](https://www.openweathermap.org/api) as a data-provider, so you can learn how to use external services, Promises and so on…
 
 ## Installation
 All you need to do is just:
