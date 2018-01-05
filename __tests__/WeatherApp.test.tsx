@@ -1,12 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as Reducers from './../App/Reducers/BasicReducer';
-import { WeatherApp } from './../App/WeatherApp';
+import * as Reducers from './../src/App/Reducers/BasicReducer';
+import { WeatherApp } from './../src/App/WeatherApp';
 import {
     EBasicActionType,
     IAppState,
     IBasicAction
-} from './../Core/Models';
+} from './../src/Core/Models';
 
 it('renders without crashing', () => {
     const div = document.createElement('div');
