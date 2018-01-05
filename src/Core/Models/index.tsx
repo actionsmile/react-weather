@@ -1,3 +1,11 @@
+export interface IWeatherProps {
+
+}
+
+export interface IWeatherState (
+
+)
+
 /**
  * Хранилище приложения.
  * @prop {string} city Город, в котром необходимо проверить погоду. По умолчанию 'Moscow'.
