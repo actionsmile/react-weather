@@ -31,6 +31,7 @@ export const counter = (state: IAppState, action: IBasicAction): IAppState => {
             counter: state.counter - 1
         }
         default:
+            result = state;
             break;
     }
 
