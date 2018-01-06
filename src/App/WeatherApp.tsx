@@ -1,10 +1,8 @@
 import * as React from 'react';
-
-interface IWeatherProps {
-}
-
-interface IWeatherState {
-}
+import {
+    IWeatherProps,
+    IWeatherState
+} from 'Core/Models';
 
 export class WeatherApp extends React.Component<IWeatherProps, IWeatherState> {
     render() {

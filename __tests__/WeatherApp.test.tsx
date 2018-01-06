@@ -1,3 +1,4 @@
+import * as deepFreeze from 'deep-freeze';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as Reducers from './../src/App/Reducers/BasicReducer';
@@ -23,14 +24,18 @@ it('Incrementing passes', () => {
 });
 
 it('Decrement passes', () => {
-    const state: IAppState = {
-        city: 'Moscow',
+    const initialState: IAppState = {
+        ...Reducers.init.state,
         counter: 2
     };
+    const finalState = {
+        ...initialState,
+        counter: 1
+    }
     const dispatchingAction: IBasicAction = {
         type: EBasicActionType.DECREMENT,
         value: 1
     }
-
-    expect(Reducers.counter(state, dispatchingAction)).toEqual({ ...state, counter: 1 });
+    deepFreeze(initialState);
+    expect(Reducers.counter(initialState, dispatchingAction)).toEqual(finalState);
 });
