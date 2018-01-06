@@ -17,7 +17,7 @@
   "scripts": {
     "start": "npm run lint && webpack --watch --progress --display-error-details",
     "lint": "tslint --config ./tslint.json ./src/**/*",
-    "test": "jest --env=jsdom"
+    "test": "jest"
   },
   "devDependencies": {
     "@types/enzyme": "3.1.1",

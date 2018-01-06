@@ -1,10 +1,6 @@
-export interface IWeatherProps {
+export interface IWeatherProps {}
 
-}
-
-export interface IWeatherState (
-
-)
+export interface IWeatherState {}
 
 /**
  * Хранилище приложения.

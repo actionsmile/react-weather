@@ -24,18 +24,18 @@ it('Incrementing passes', () => {
 });
 
 it('Decrement passes', () => {
-    const state: IAppState = {
+    const initialState: IAppState = {
         ...Reducers.init.state,
         counter: 2
     };
     const finalState = {
-        ...state,
+        ...initialState,
         counter: 1
     }
     const dispatchingAction: IBasicAction = {
         type: EBasicActionType.DECREMENT,
         value: 1
     }
-    deepFreeze(state);
-    expect(Reducers.counter(state, dispatchingAction)).toEqual(finalState);
+    deepFreeze(initialState);
+    expect(Reducers.counter(initialState, dispatchingAction)).toEqual(finalState);
 });
