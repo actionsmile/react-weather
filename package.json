@@ -39,14 +39,18 @@
     "@types/react": "16.0.0",
     "@types/react-dom": "16.0.0",
     "@types/react-redux": "5.0.1",
+    "babel-polyfill": "^6.26.0",
     "deep-freeze": "^0.0.1",
+    "lodash": "^4.17.4",
+    "node-uuid": "^1.4.8",
     "react": "16.0.0",
     "react-dom": "16.0.0",
     "react-redux": "5.0.1",
     "redux": "3.7.2",
     "save": "2.3.2",
     "typescript": "2.6.2",
-    "webpack": "3.10.0"
+    "webpack": "3.10.0",
+    "yql": "^1.0.2"
   },
   "resolutions": {
     "@types/react": "16.0.0"

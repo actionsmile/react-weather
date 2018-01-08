@@ -2,27 +2,42 @@ export interface IWeatherProps {}
 
 export interface IWeatherState {}
 
+export interface IWeatherInfo {
+    city: string;
+    measurement: EMesureType;
+    temperature: number;
+}
+
 /**
  * Хранилище приложения.
- * @prop {string} city Город, в котром необходимо проверить погоду. По умолчанию 'Moscow'.
- * @prop {number} counter Просто переменная для тестов. По умолчанию 0.
+ * @prop {IWeatherInfo} infoState Информация о состоняиее приложения по погоде.
  */
 export interface IAppState {
-    city: string;
-    counter: number;
+    infoState: IWeatherInfo;
 }
 
 /**
- * Тестовые действия.
- * @prop {EBasicActionType} type Тип события.
- * @prop {number} value Значение, которое передается в событии.
+ * Единицы измерения температуры.
+ * @prop {enum string} CELSIUS В градусах по Цельсию.
+ * @prop {enum string} FAHRENHEIT В градусах по Фаренгейту.
  */
-export interface IBasicAction {
-    type: EBasicActionType;
-    value: number;
+export enum EMesureType {
+    CELSIUS = 'celsius',
+    FAHRENHEIT = 'fahrenheit'
 }
 
-export enum EBasicActionType {
-    INCREMENT,
-    DECREMENT
+/**
+ * Переменные, которые используются приложенияем.
+ * @prop {enum string} STORAGE Имя хранилища состояния приложения в <code>localStorage</code>.
+ */
+export enum ECoreContsants {
+    STORAGE = 'WeaApp-LocalStorage'
+}
+
+export enum EConnectionStatus {
+    SUCCESS,
+    UNAVALIVBALE,
+    FORBIDDEN,
+    CLOSE,
+    DECLINE
 }
