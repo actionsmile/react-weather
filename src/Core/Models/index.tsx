@@ -10,38 +10,17 @@ export interface IWeatherInfo {
 
 /**
  * Хранилище приложения.
- * @prop {string} city Город, в котром необходимо проверить погоду. По умолчанию 'Moscow'.
- * @prop {number} counter Просто переменная для тестов. По умолчанию 0.
+ * @prop {IWeatherInfo} infoState Информация о состоняиее приложения по погоде.
  */
 export interface IAppState {
-    city: string;
-    counterState: ICounterState;
-}
-
-export interface ICounterState {
-    value: number;
+    infoState: IWeatherInfo;
 }
 
 /**
- * Тестовые действия.
- * @prop {EBasicActionType} type Тип события.
- * @prop {number} value Значение, которое передается в событии.
+ * Единицы измерения температуры.
+ * @prop {enum string} CELSIUS В градусах по Цельсию.
+ * @prop {enum string} FAHRENHEIT В градусах по Фаренгейту.
  */
-export interface IBasicAction {
-    type: EBasicActionType;
-    value: number;
-}
-
-/**
- * Типы тестовых действий.
- * @prop {enum string} INCREMENT Действие добавления к счетчику указанного в экшне значения.
- * @prop {enum string} DECREMENT Действие вычитания от счетчика указанного в экшне значения.
- */
-export enum EBasicActionType {
-    INCREMENT = 'Increment',
-    DECREMENT = 'Decrement'
-}
-
 export enum EMesureType {
     CELSIUS = 'celsius',
     FAHRENHEIT = 'fahrenheit'
