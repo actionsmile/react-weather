@@ -1,8 +1,5 @@
 import {
-    EBasicActionType,
     IAppState,
-    IBasicAction,
-    ICounterState
 } from 'Core/Models';
 
 /**
@@ -16,28 +13,4 @@ export const init = {
             value: 0
         }
     }
-}
-
-export const counter = (state: ICounterState, action: IBasicAction): ICounterState => {
-    state = state || init.state.counterState;
-    let result: ICounterState;
-    switch (action.type) {
-        case EBasicActionType.INCREMENT:
-            result = {
-                ...state,
-                value: state.value + action.value
-            }
-            break;
-        case EBasicActionType.DECREMENT:
-            result = {
-                ...state,
-                value: state.value - action.value
-            }
-            break;
-        default:
-            result = state;
-            break;
-    }
-
-    return result;
 }

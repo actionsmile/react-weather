@@ -15,7 +15,7 @@
   "license": "MIT",
   "repository": "https://github.com/actionsmile/react-weather.git",
   "scripts": {
-    "start": "npm run lint && webpack --watch --progress --display-error-details",
+    "start": "npm run lint && npm test && webpack --watch --progress --display-error-details",
     "lint": "tslint --config ./tslint.json ./src/**/*",
     "test": "jest"
   },
