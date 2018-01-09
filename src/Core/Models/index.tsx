@@ -29,9 +29,11 @@ export enum EMesureType {
 /**
  * Переменные, которые используются приложенияем.
  * @prop {enum string} STORAGE Имя хранилища состояния приложения в <code>localStorage</code>.
+ * @prop {enum string} API_KEY Ключ к доступу данных сервиса <code>http://www.wunderground.com</code>
  */
 export enum ECoreContsants {
-    STORAGE = 'WeaApp-LocalStorage'
+    STORAGE = 'WeaApp-LocalStorage',
+    API_KEY = 'cc6ae495769f05d5'
 }
 
 export enum EConnectionStatus {
