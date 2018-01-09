@@ -23,9 +23,6 @@ jobs:
           paths:
             - node_modules
       - run:
-          name: Install Yarn
-          command: npm install -g yarn
-      - run:
           name: Testing
           command: yarn test
 
