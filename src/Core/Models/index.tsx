@@ -2,18 +2,24 @@ export interface IWeatherProps {}
 
 export interface IWeatherState {}
 
-export interface IWeatherInfo {
+export interface ISettingsState {
     city: string;
     measurement: EMesureType;
-    temperature: number;
+}
+
+export interface ITemperatureState {
+    celsius: number;
+    fahrenheit: number;
 }
 
 /**
  * Хранилище приложения.
- * @prop {IWeatherInfo} infoState Информация о состоняиее приложения по погоде.
+ * @prop {ISettingsState} settingsState Общие настройки погодного приложения.
+ * @prop {ITemperatureState} temperatureState Данные о температуре.
  */
 export interface IAppState {
-    infoState: IWeatherInfo;
+    settingsState: ISettingsState;
+    temperatureState: ITemperatureState;
 }
 
 /**
