@@ -1,6 +1,7 @@
 import {
     EActionTypes,
     EMesureType,
+    ISettingsActionResponse,
     ISettingsState,
     ITempAction
 } from 'Core/Models';
@@ -12,19 +13,19 @@ const init = {
     })
 }
 
-export const saveCity = (state: ISettingsState, action: ITempAction<string | EMesureType>) => {
+export const saveCity = (state: ISettingsState, action: ITempAction<ISettingsActionResponse>) => {
     let result = state || init.getState();
     switch (action.type) {
         case EActionTypes.SAVE_CITY:
             result = {
                 ...result,
-                city: action.payload
+                city: action.payload.city
             };
             break;
         case EActionTypes.SAVE_MEASURNMENT:
             result = {
                 ...result,
-                measurement: action.payload
+                measurement: action.payload.measurenment
             }
         default:
             break;

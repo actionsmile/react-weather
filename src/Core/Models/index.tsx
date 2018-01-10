@@ -4,7 +4,7 @@ export interface IWeatherState {}
 
 export interface ISettingsState {
     city: string;
-    measurement: string | EMesureType;
+    measurement: EMesureType;
 }
 
 export interface ITemperatureState {
@@ -55,9 +55,9 @@ export interface ITempAction<T> {
     payload?: T;
 }
 
-export interface ISettingsAction {
-    type: string;
-    payload?: string | EMesureType;
+export interface ISettingsActionResponse {
+    city?: string;
+    measurenment?: EMesureType;
 }
 
 export enum EActionTypes {

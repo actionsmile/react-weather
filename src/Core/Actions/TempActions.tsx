@@ -1,20 +1,26 @@
 import {
     EActionTypes,
     EMesureType,
-    ITempAction,
+    ISettingsActionResponse,
+    ITempAction
 } from 'Core/Models';
 
-export const SaveCityAction = (payload: string): ITempAction<string> => ({
+const getCurrentCity = (): ITempAction<ISettingsActionResponse> => ({
+    type: EActionTypes.GET_CITY
+})
+
+const saveCityAction = (city: string): ITempAction<ISettingsActionResponse> => ({
     type: EActionTypes.SAVE_CITY,
-    payload
+    payload: { city }
 });
 
-export const SaveMeasurenmentAction = (payload: EMesureType): ITempAction<EMesureType> => ({
+const saveMeasurenmentAction = (measurenment: EMesureType): ITempAction<ISettingsActionResponse> => ({
     type: EActionTypes.SAVE_MEASURNMENT,
-    payload
+    payload: { measurenment }
 });
 
 export const TestActions = {
-    SaveCityAction,
-    SaveMeasurenmentAction
+    getCurrentCity,
+    saveCityAction,
+    saveMeasurenmentAction
 }

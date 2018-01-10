@@ -15,9 +15,10 @@
   "license": "MIT",
   "repository": "https://github.com/actionsmile/react-weather.git",
   "scripts": {
-    "start": "webpack --progress --display-error-details",
+    "start": "webpack --progress --display-error-details --watch",
     "lint": "tslint --config ./tslint.json ./src/**/*",
-    "test": "jest --verbose --coverage"
+    "test": "jest --verbose --coverage",
+    "start:yarn-all": "yarn lint && yarn test && yarn start"
   },
   "devDependencies": {
     "@types/enzyme": "3.1.1",
@@ -60,8 +61,8 @@
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "moduleNameMapper": {
-      "^Core/(.*)": "<rootDir>/src/Core/$1",
       "^App/(.*)": "<rootDir>/src/App/$1",
+      "^Core/(.*)": "<rootDir>/src/Core/$1",
       "^Modules/(.*)": "<rootDir>/src/Modules/$1",
       "^Components/(.*)": "<rootDir>/src/Components/$1",
       "^assets/(.*)": "<rootDir>/src/assets/$1"
