@@ -1,5 +1,5 @@
 # Weather App
-[![supported by Scriptor](https://www.scriptor.me/badges/support.svg)](https://www.scriptor.me) [![Build Status](https://travis-ci.org/actionsmile/react-weather.svg?branch=master)](https://travis-ci.org/actionsmile/react-weather) [![CircleCI](https://circleci.com/gh/actionsmile/react-weather/tree/master.svg?style=svg)](https://circleci.com/gh/actionsmile/react-weather/tree/master)
+[![supported by Scriptor](https://img.shields.io/badge/supports%20by-Scriptor-orange.svg?colorB=e74c3c)](https://www.scriptor.me) [![Build Status](https://travis-ci.org/actionsmile/react-weather.svg?branch=master)](https://travis-ci.org/actionsmile/react-weather) [![CircleCI](https://circleci.com/gh/actionsmile/react-weather/tree/master.svg?style=svg)](https://circleci.com/gh/actionsmile/react-weather/tree/master)
 ---
 This app is just an example of usage [React](https://wwww.reactjs.org), [Redux](https://redux.js.org/) and [Typescript](https://www.typescriptlang.org) power. It uses [Weather Underground](http://www.wunderground.com) as a data-provider, so you can learn how to use external services, Promises and so on…
 
