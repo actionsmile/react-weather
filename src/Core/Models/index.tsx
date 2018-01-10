@@ -1,10 +1,11 @@
-export interface IWeatherProps {}
-
-export interface IWeatherState {}
-
+/**
+ * Состояние настроек
+ * @prop {string} city Название города, в котором пользователь хочет видеть погоду.
+ * @prop {EMeasureType} measurenment
+ */
 export interface ISettingsState {
     city: string;
-    measurement: EMesureType;
+    measurenment: EMesureType;
 }
 
 export interface ITemperatureState {

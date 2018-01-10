@@ -9,11 +9,11 @@ import {
 const init = {
     getState: (): ISettingsState => ({
         city: 'Moscow',
-        measurement: EMesureType.CELSIUS
+        measurenment: EMesureType.CELSIUS
     })
 }
 
-export const saveCity = (state: ISettingsState, action: ITempAction<ISettingsActionResponse>) => {
+export const saveSettings = (state: ISettingsState, action: ITempAction<ISettingsActionResponse>) => {
     let result = state || init.getState();
     switch (action.type) {
         case EActionTypes.SAVE_CITY:
@@ -25,7 +25,7 @@ export const saveCity = (state: ISettingsState, action: ITempAction<ISettingsAct
         case EActionTypes.SAVE_MEASURNMENT:
             result = {
                 ...result,
-                measurement: action.payload.measurenment
+                measurenment: action.payload.measurenment
             }
         default:
             break;

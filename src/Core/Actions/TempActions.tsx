@@ -19,7 +19,7 @@ const saveMeasurenmentAction = (measurenment: EMesureType): ITempAction<ISetting
     payload: { measurenment }
 });
 
-export const TestActions = {
+export const TempActions = {
     getCurrentCity,
     saveCityAction,
     saveMeasurenmentAction

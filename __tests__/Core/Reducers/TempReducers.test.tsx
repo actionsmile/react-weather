@@ -1,58 +1,58 @@
 
 import * as deepFreeze from 'deep-freeze';
-import { TestActions } from 'Core/Actions/TempActions';
-import { EMesureType } from 'Core/Models';
-import { saveCity } from 'Core/Reducers/TempReducers';
+import { TempActions as actions } from 'Core/Actions/TempActions';
+import { EMesureType, ISettingsState } from 'Core/Models';
+import { saveSettings } from 'Core/Reducers/TempReducers';
 
 describe('Settings reducer tests', () => {
     const {
         getCurrentCity,
         saveCityAction,
         saveMeasurenmentAction
-    } = TestActions;
+    } = actions;
 
     it('init state returns if `undefined` passed', () => {
         const action = getCurrentCity();
-        const finalState = {
+        const finalState: ISettingsState = {
             city: 'Moscow',
-            measurement: EMesureType.CELSIUS
+            measurenment: EMesureType.CELSIUS
         };
         deepFreeze(action);
-        expect(saveCity(undefined, action)).toEqual(finalState);
+        expect(saveSettings(undefined, action)).toEqual(finalState);
     });
 
     it('changes city name to `Tashkent`', () => {
         const action = saveCityAction('Tashkent');
-        const finalState = {
+        const finalState: ISettingsState = {
             city: 'Tashkent',
-            measurement: EMesureType.CELSIUS
+            measurenment: EMesureType.CELSIUS
         };
         deepFreeze(action);
-        expect(saveCity(undefined, action)).toEqual(finalState);
+        expect(saveSettings(undefined, action)).toEqual(finalState);
     });
 
     it('changes mesure type to `FAHRENHEIT`', () => {
         const action = saveMeasurenmentAction(EMesureType.FAHRENHEIT);
-        const finalState = {
+        const finalState: ISettingsState = {
             city: 'Moscow',
-            measurement: EMesureType.FAHRENHEIT
+            measurenment: EMesureType.FAHRENHEIT
         };
         deepFreeze(action);
-        expect(saveCity(undefined, action)).toEqual(finalState);
+        expect(saveSettings(undefined, action)).toEqual(finalState);
     });
 
     it('changes city to `Los Angeles` and keeps prev measurenment', () => {
         const action = saveCityAction('Los Angeles');
-        const initialState = {
+        const initialState: ISettingsState = {
             city: 'Moscow',
-            measurement: EMesureType.FAHRENHEIT
+            measurenment: EMesureType.FAHRENHEIT
         }
-        const finalState = {
+        const finalState: ISettingsState = {
             city: 'Los Angeles',
-            measurement: EMesureType.FAHRENHEIT
+            measurenment: EMesureType.FAHRENHEIT
         };
         deepFreeze(initialState);
         deepFreeze(action);
-        expect(saveCity(initialState, action)).toEqual(finalState);
+        expect(saveSettings(initialState, action)).toEqual(finalState);
     });
 });
