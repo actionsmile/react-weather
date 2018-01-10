@@ -4,7 +4,7 @@ export interface IWeatherState {}
 
 export interface ISettingsState {
     city: string;
-    measurement: EMesureType;
+    measurement: string | EMesureType;
 }
 
 export interface ITemperatureState {
@@ -48,4 +48,20 @@ export enum EConnectionStatus {
     FORBIDDEN,
     CLOSE,
     DECLINE
+}
+
+export interface ITempAction<T> {
+    type: string;
+    payload?: T;
+}
+
+export interface ISettingsAction {
+    type: string;
+    payload?: string | EMesureType;
+}
+
+export enum EActionTypes {
+    GET_CITY = 'GET_CITY',
+    SAVE_CITY = 'SAVE_CITY',
+    SAVE_MEASURNMENT = 'SAVE_MEASURENMENT'
 }

@@ -5,6 +5,7 @@
 /.idea
 **/node_modules
 /out
+/coverage/**
 /app/components/dist
 /assets/css/style.css
 /build

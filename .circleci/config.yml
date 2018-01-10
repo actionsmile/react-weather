@@ -23,8 +23,14 @@ jobs:
           paths:
             - node_modules
       - run:
+          name: Linting
+          command: yarn lint
+      - run:
           name: Testing
           command: yarn test
+      - run:
+          name: Packing
+          command: yarn start
 
 workflows:
   version: 2
