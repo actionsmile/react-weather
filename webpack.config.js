@@ -12,6 +12,11 @@ module.exports = {
         filename: 'js/bundle.js'
     },
 
+    devServer: {
+      contentBase: path.join(__dirname, '/build'),
+      port: 3000
+    },
+
     devtool: 'source-map',
 
     resolve: {
@@ -25,7 +30,15 @@ module.exports = {
     module: {
         rules: [
             { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-            { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' }
+            { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
+            { test:/\.(s*)css$/, use:['style-loader','css-loader', 'sass-loader'] },
+            { test: /\.woff(\?.+)?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff' },
+            { test: /\.woff2(\?.+)?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff' },
+            { test: /\.ttf(\?.+)?$/, use: 'file-loader' },
+            { test: /\.eot(\?.+)?$/, use: 'file-loader' },
+            { test: /\.svg(\?.+)?$/, use: 'file-loader' },
+            { test: /\.png$/, use: 'url-loader?mimetype=image/png' },
+            { test: /\.gif$/, use: 'url-loader?mimetype=image/gif' }
         ]
     },
 
@@ -33,7 +46,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.join(__dirname, 'assets/index.html'),
-            favicon: path.join(__dirname, 'assets/favicon.ico')
+            favicon: path.join(__dirname, 'assets/favicon.ico'),
+            showErrors: true,
+            hash: true
         })
     ]
 };

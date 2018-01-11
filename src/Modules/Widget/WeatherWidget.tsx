@@ -6,7 +6,7 @@ import {
 
 export class WeatherWidget extends React.Component<IWidgetProps, IWidgetState> {
     componentDidUpdate(prevProps: IWidgetProps) {
-        console.group('%cupdate', 'color: gray');
+        console.group('%cupdate', 'color: green');
         console.log(prevProps);
         console.groupEnd();
     }
