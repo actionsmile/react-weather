@@ -1,4 +1,3 @@
-import { createStore } from 'redux';
 /**
  * Загружает состоние приложения из <code>local storage</code>, если он там есть.
  * @param {string} stateName Имя состояния приложения в <code>local storage</code>.

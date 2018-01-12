@@ -1,12 +1,4 @@
-/**
- * Состояние настроек
- * @prop {string} city Название города, в котором пользователь хочет видеть погоду.
- * @prop {EMeasureType} measurenment
- */
-export interface ISettingsState {
-    city: string;
-    measurenment: EMesureType;
-}
+import { ISettingsState } from 'Modules/Settings/Models/SettingsModels';
 
 export interface ITemperatureState {
     celsius: number;
@@ -51,18 +43,7 @@ export enum EConnectionStatus {
     DECLINE
 }
 
-export interface ITempAction<T> {
+export interface IPayloadAction<T> {
     type: string;
     payload?: T;
-}
-
-export interface ISettingsActionResponse {
-    city?: string;
-    measurenment?: EMesureType;
-}
-
-export enum EActionTypes {
-    GET_CITY = 'GET_CITY',
-    SAVE_CITY = 'SAVE_CITY',
-    SAVE_MEASURNMENT = 'SAVE_MEASURENMENT'
 }

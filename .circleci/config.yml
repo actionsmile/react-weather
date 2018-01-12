@@ -30,7 +30,7 @@ jobs:
           command: yarn test
       - run:
           name: Packing
-          command: yarn start
+          command: yarn start:ci
 
 workflows:
   version: 2
