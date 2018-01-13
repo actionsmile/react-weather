@@ -1,5 +1,5 @@
 import {
-    EMesureType,
+    EMeasureType,
     IPayloadAction
 } from 'Core/Models';
 import {
@@ -16,7 +16,7 @@ export const saveCity = (city: string): IPayloadAction<ISettingsActionResponse> 
     payload: { city }
 });
 
-export const saveMeasurenment = (measurenment: EMesureType): IPayloadAction<ISettingsActionResponse> => ({
+export const saveMeasurenment = (measurenment: EMeasureType): IPayloadAction<ISettingsActionResponse> => ({
     type: ESettingsActionTypes.SAVE_MEASURNMENT,
     payload: { measurenment }
 });

@@ -1,4 +1,4 @@
-import { EMesureType, IPayloadAction } from 'Core/Models';
+import { EMeasureType, IPayloadAction } from 'Core/Models';
 
 /**
  * Состояние настроек
@@ -7,7 +7,7 @@ import { EMesureType, IPayloadAction } from 'Core/Models';
  */
 export interface ISettingsState {
     city: string;
-    measurenment: EMesureType;
+    measurenment: EMeasureType;
 }
 
 /**
@@ -17,7 +17,7 @@ export interface ISettingsState {
  */
 export interface ISettingsActionResponse {
     city?: string;
-    measurenment?: EMesureType;
+    measurenment?: EMeasureType;
 }
 
 /**
@@ -28,7 +28,7 @@ export interface ISettingsActionResponse {
 export interface ISettingsActions {
     getCurrentCity: () => IPayloadAction<ISettingsActionResponse>;
     saveCity: (city: string) => IPayloadAction<ISettingsActionResponse>;
-    saveMeasurenment: (measurenment: EMesureType) => IPayloadAction<ISettingsActionResponse>;
+    saveMeasurenment: (measurenment: EMeasureType) => IPayloadAction<ISettingsActionResponse>;
 }
 
 export enum ESettingsActionTypes {

@@ -16,10 +16,10 @@
   "repository": "https://github.com/actionsmile/react-weather.git",
   "scripts": {
     "start:ci": "webpack --progress --display-error-details",
-    "start": "webpack-dev-server -w --config ./webpack.config.js",
+    "start": "webpack-dev-server -w --progress --config ./webpack.config.js",
     "lint": "tslint --config ./tslint.json ./src/**/*",
     "test": "jest --verbose --coverage",
-    "start:yarn-all": "yarn lint && yarn test && yarn start"
+    "all": "yarn lint && yarn test && yarn start"
   },
   "devDependencies": {
     "@types/enzyme": "3.1.1",
@@ -42,6 +42,7 @@
     "ts-loader": "3.2.0",
     "tslint": "5.0.0",
     "typings": "^2.1.1",
+    "uglifyjs-webpack-plugin": "^1.1.6",
     "url-loader": "^0.6.2",
     "webpack-dev-server": "^2.10.1"
   },
