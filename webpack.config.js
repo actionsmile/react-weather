@@ -2,7 +2,8 @@
 
 const path = require('path');
 const webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
     context: path.join(__dirname, 'src'),
@@ -14,7 +15,10 @@ module.exports = {
 
     devServer: {
       contentBase: path.join(__dirname, '/build'),
-      port: 3000
+      port: 3000,
+      headers: {
+          'Access-Control-Allow-Origin': '*',
+        }
     },
 
     devtool: 'source-map',
@@ -50,5 +54,13 @@ module.exports = {
             showErrors: true,
             hash: true
         })
+        // ,
+        // new UglifyJsPlugin({
+        //     sourceMap: true,
+        //     uglifyOptions: {
+        //         ecma: 8
+        //     },
+        //     exclude: /\/node_modules/
+        // })
     ]
 };

@@ -1,5 +1,5 @@
 import {
-    EMesureType,
+    EMeasureType,
     IPayloadAction
 } from 'Core/Models';
 import {
@@ -12,7 +12,7 @@ export const init = {
     get state (): ISettingsState {
         return {
             city: 'Moscow',
-            measurenment: EMesureType.CELSIUS
+            measurenment: EMeasureType.CELSIUS
         }
     }
 }

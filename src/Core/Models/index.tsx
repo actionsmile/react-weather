@@ -20,7 +20,7 @@ export interface IAppState {
  * @prop {enum string} CELSIUS В градусах по Цельсию.
  * @prop {enum string} FAHRENHEIT В градусах по Фаренгейту.
  */
-export enum EMesureType {
+export enum EMeasureType {
     CELSIUS = 'celsius',
     FAHRENHEIT = 'fahrenheit'
 }
@@ -32,7 +32,8 @@ export enum EMesureType {
  */
 export enum ECoreContsants {
     STORAGE = 'WeaApp-LocalStorage',
-    API_KEY = 'cc6ae495769f05d5'
+    API_URL = 'http://api.openweathermap.org/data/2.5/weather?q=',
+    API_KEY = '5f35a07150d14308f953b8d40415d1d6'
 }
 
 export enum EConnectionStatus {

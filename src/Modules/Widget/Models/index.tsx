@@ -1,4 +1,7 @@
-import { ISettingsActions } from 'Modules/Settings/Models/SettingsModels';
+import {
+    ISettingsActions,
+    ISettingsState
+} from 'Modules/Settings/Models/SettingsModels';
 
 /**
  * Свойства виджета, отображающего погоду.
@@ -6,11 +9,13 @@ import { ISettingsActions } from 'Modules/Settings/Models/SettingsModels';
  * @prop {ISettingsAction} Список действий, которые может инициировать виджет.
  */
 export interface IWidgetProps {
-    city?: string;
+    settings?: ISettingsState;
     actions?: ISettingsActions;
 }
 
 /**
  * Состояние компонента.
  */
-export interface IWidgetState {}
+export interface IWidgetState {
+    temperature: number;
+}

@@ -7,7 +7,7 @@ import { WeatherWidget } from 'Modules/Widget/WeatherWidget';
 export class WeatherApp extends React.Component<{}, {}> {
     store = createStore(AppReducers);
 
-    render() {
+    render(): JSX.Element {
         return (
             <Provider store={ this.store }>
                 <WeatherWidget />
