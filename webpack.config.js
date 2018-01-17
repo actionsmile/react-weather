@@ -1,9 +1,10 @@
 'use strict';
 
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     context: path.join(__dirname, 'src'),
@@ -15,10 +16,7 @@ module.exports = {
 
     devServer: {
       contentBase: path.join(__dirname, '/build'),
-      port: 3000,
-      headers: {
-          'Access-Control-Allow-Origin': '*',
-        }
+      port: 3000
     },
 
     devtool: 'source-map',
@@ -35,7 +33,13 @@ module.exports = {
         rules: [
             { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
             { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
-            { test:/\.(s*)css$/, use:['style-loader','css-loader', 'sass-loader'] },
+            {
+                test:/\.(s*)css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader', 'less-loader']
+                })
+            },
             { test: /\.woff(\?.+)?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff' },
             { test: /\.woff2(\?.+)?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff' },
             { test: /\.ttf(\?.+)?$/, use: 'file-loader' },
@@ -49,18 +53,19 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: path.join(__dirname, 'assets/index.html'),
-            favicon: path.join(__dirname, 'assets/favicon.ico'),
+            template: path.join(__dirname, 'src/assets/index.html'),
+            favicon: path.join(__dirname, 'src/assets/favicon.ico'),
             showErrors: true,
             hash: true
+        }),
+        new ExtractTextPlugin({
+            filename: 'styles/main.css'
+        }),
+        new UglifyJsPlugin({
+            uglifyOptions: {
+                ecma: 8
+            },
+            exclude: /\/node_modules/
         })
-        // ,
-        // new UglifyJsPlugin({
-        //     sourceMap: true,
-        //     uglifyOptions: {
-        //         ecma: 8
-        //     },
-        //     exclude: /\/node_modules/
-        // })
     ]
 };
