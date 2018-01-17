@@ -1,0 +1,11 @@
+.temperature {
+    font-size: 1em;
+
+    &__minus{
+      margin-left: -.8em;
+    }
+
+    &__data {
+        padding-left: .2em; 
+    }
+}
