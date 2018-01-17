@@ -3,7 +3,7 @@
 
 ---
 
-This app is just an example of usage [React](https://wwww.reactjs.org), [Redux](https://redux.js.org/) and [Typescript](https://www.typescriptlang.org) power. It uses [Weather Underground](http://www.wunderground.com) as a data-provider, so you can learn how to use external services, Promises and so on…
+This app is just an example of usage [React](https://wwww.reactjs.org), [Redux](https://redux.js.org/) and [Typescript](https://www.typescriptlang.org) power. It uses [OpenWeatherAPI](https://www.openweathermap.org) as a data-provider, so you can learn how to use external services, Promises and so on…
 
 ## Installation
 All you need to do is just:
