@@ -74,8 +74,8 @@
     "redux": "3.7.2",
     "save": "2.3.2",
     "typescript": "2.6.2",
-    "webpack": "3.10.0",
-    "yql": "^1.0.2"
+    "uuid": "^3.2.1",
+    "webpack": "3.10.0"
   },
   "resolutions": {
     "@types/react": "16.0.0"
