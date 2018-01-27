@@ -15,8 +15,8 @@
   "license": "MIT",
   "repository": "https://github.com/actionsmile/react-weather.git",
   "scripts": {
-    "start:ci": "webpack --progress --display-error-details",
-    "start": "webpack-dev-server -w --progress --config ./webpack.config.js",
+    "start:ci": "webpack --progress --display-error-details -d --color --bail",
+    "start": "webpack -w --progress --config ./webpack.config.js",
     "lint": "tslint --config ./tslint.json ./src/**/*",
     "test": "jest --verbose --coverage",
     "all": "yarn lint && yarn test && yarn start"
@@ -28,17 +28,20 @@
     "@types/reactstrap": "^5.0.10",
     "async-module-loader": "^2.1.0",
     "awesome-typescript-loader": "3.4.1",
+    "clean-webpack-plugin": "^0.1.18",
     "css-loader": "^0.28.8",
     "enzyme": "3.1.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
+    "isomorphic-fetch": "^2.2.1",
     "jest": "^22.0.4",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "node-sass": "^4.7.2",
     "raw-loader": "^0.5.1",
     "react-addons-test-utils": "^15.6.2",
+    "resolve-url-loader": "^2.2.1",
     "sass-loader": "^6.0.6",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.19.1",
@@ -77,19 +80,21 @@
   },
   "jest": {
     "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      ".(tsx?)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "moduleNameMapper": {
       "^App/(.*)": "<rootDir>/src/App/$1",
       "^Core/(.*)": "<rootDir>/src/Core/$1",
       "^Modules/(.*)": "<rootDir>/src/Modules/$1",
       "^Components/(.*)": "<rootDir>/src/Components/$1",
-      "^assets/(.*)": "<rootDir>/src/assets/$1"
+      "^assets/(.*)": "<rootDir>/src/assets/$1",
+      "\\.(s?[c|a]ss)$": "identity-obj-proxy"
     },
     "mapCoverage": true,
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/lib/"
+      "/lib/",
+      "/src/assets/"
     ],
     "testRegex": "(/test/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleFileExtensions": [
