@@ -17,7 +17,7 @@ export const init = {
     }
 }
 
-export const SettingsReducer = (state: ISettingsState = init.state, action: IPayloadAction<ISettingsActionResponse>) => {
+export const SettingsReducer = (state: ISettingsState = init.state, action: IPayloadAction<ISettingsActionResponse>): ISettingsState => {
     switch (action.type) {
         case ESettingsActionTypes.SAVE_CITY:
             return {
