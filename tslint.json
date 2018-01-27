@@ -20,7 +20,7 @@
             "avoid-escape"
         ]
     },
-    "rules": {
+   "rules": {
         "class-name": true,
         "eofline": true,
         "indent": [
