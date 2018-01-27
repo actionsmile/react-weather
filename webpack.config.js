@@ -1,65 +1,82 @@
 'use strict';
 
 const path = require('path');
+const webpack = require('webpack');
+
+const CleanWebpackPlugin = require('clean-webpack-plugin'); //installed via npm
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const webpack = require('webpack');
+
+const cssLoader = new ExtractTextPlugin({
+    disabled: false,
+    filename: 'styles/main.css',
+    allChunks: true,
+});
+   
 
 module.exports = {
-    context: path.join(__dirname, 'src'),
-    entry: path.join(__dirname, 'src/index.tsx'),
+    entry: [
+        path.join(__dirname, 'src/index.tsx'),
+        path.join(__dirname, 'assets/styles/IndexPage.scss')
+    ],
     output: {
-        path: __dirname + '/build',
-        filename: 'js/bundle.js'
+        path: path.join(__dirname, 'build'),
+        filename: 'js/[name].js'
     },
 
     devServer: {
-      contentBase: path.join(__dirname, '/build'),
-      port: 3000
+        contentBase: path.join(__dirname, 'build'),
+        port: 3000
     },
 
-    devtool: 'source-map',
-
     resolve: {
-        modules: [
-            path.join(__dirname, 'src'),
-            'node_modules'
-        ],
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
+        modules: ['src', 'node_modules'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'] // json и scss не надо резолвить. вообще в этом массиве должно быть как можно меньше элементов.
     },
 
     module: {
         rules: [
-            { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-            { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
+            { test: /\.tsx?$/, loader: 'awesome-typescript-loader', exclude: /node_modules/ },
             {
-                test:/\.(s*)css$/,
-                use: ExtractTextPlugin.extract({
+                test: /\.s?[c|a]ss$/,
+                use: cssLoader.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader', 'less-loader']
-                })
-            },
-            { test: /\.woff(\?.+)?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff' },
-            { test: /\.woff2(\?.+)?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff' },
-            { test: /\.ttf(\?.+)?$/, use: 'file-loader' },
-            { test: /\.eot(\?.+)?$/, use: 'file-loader' },
-            { test: /\.svg(\?.+)?$/, use: 'file-loader' },
-            { test: /\.png$/, use: 'url-loader?mimetype=image/png' },
-            { test: /\.gif$/, use: 'url-loader?mimetype=image/gif' }
+                    use: [
+	                    {
+	                        loader: 'css-loader',
+	                        options: {
+	                            sourceMap: true, //тут можно прикрутить переменные среди или же почитай вот тут https://webpack.js.org/guides/environment-variables/
+	                        }
+	                    },
+	                    {
+	                    	loader: 'resolve-url-loader', //sass-loader не резолвит url https://www.npmjs.com/package/resolve-url-loader
+	                    	options: {
+	                    		sourceMap: true,
+	                    	}
+	                    },
+	                    {
+	                    	loader: 'sass-loader',
+	                    	options: {
+	                    		sourceMap: true,
+	                    	}
+	                    }
+                    ]
+                }),
+                exclude: /node_modules/
+            }
         ]
     },
 
     plugins: [
+        new CleanWebpackPlugin(path.join(__dirname, 'build')),
+        cssLoader,
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: path.join(__dirname, 'src/assets/index.html'),
-            favicon: path.join(__dirname, 'src/assets/favicon.ico'),
+            template: path.join(__dirname, 'assets/index.html'),
+            favicon: path.join(__dirname, 'assets/favicon.ico'),
             showErrors: true,
             hash: true
-        }),
-        new ExtractTextPlugin({
-            filename: 'styles/main.css'
         }),
         new UglifyJsPlugin({
             uglifyOptions: {

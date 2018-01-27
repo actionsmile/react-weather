@@ -4,8 +4,6 @@ import { createStore } from 'redux';
 import { AppReducers } from 'Core/Reducers/AppReducers';
 import { WeatherWidget } from 'Modules/Widget/WeatherWidget';
 
-import 'assets/styles/Components/weather-widget.scss';
-
 export class WeatherApp extends React.Component<{}, {}> {
     store = createStore(AppReducers);
 

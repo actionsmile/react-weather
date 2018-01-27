@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { EMeasureType } from 'Core/Models';
 
-//Styles
-import 'assets/styles/Components/temperature.scss';
-
 interface ITemperatureProps {
     value: number;
     measure: EMeasureType;
