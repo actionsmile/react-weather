@@ -23,25 +23,28 @@ class Widget extends React.Component<IWidgetProps, IWidgetState> {
         }
     }
 
-    componentDidMount() {
+    public componentDidMount(): void {
         this.handleClick(this.cities[0]);
     }
 
-    componentWillReceiveProps(nextProps: IWidgetProps) {
+    public async componentWillReceiveProps(nextProps: IWidgetProps): Promise<void> {
         const { settings } = nextProps;
-        !isEmpty(this.props.settings) && this.props.settings.city !== settings.city && service.detect(settings).then(
-            (data: Response) => data.json().then(
-                result => this.setState({ temperature: result.main.temp })
-            ),
-            reason => console.log(reason)
-        );
+        if(!isEmpty(this.props.settings) && this.props.settings.city !== settings.city) {
+            try {
+                const data = await service.detect(settings);
+                const json = await data.json();
+                this.setState({ temperature: json.main.temp });
+            } catch (error) {
+                console.log(error);
+            }
+        }
     }
 
-    handleClick = (cityName: string) => {
+    private handleClick = (cityName: string): void => {
         !isEmpty(this.props.actions) && this.props.actions.saveCity(cityName);
     }
 
-    render(): JSX.Element {
+    public render(): JSX.Element {
         const { settings } = this.props;
         const { temperature } = this.state;
         return (
@@ -66,11 +69,11 @@ class Widget extends React.Component<IWidgetProps, IWidgetState> {
     }
 }
 
-const mapStateToProps = (state: IAppState) => ({
+const mapStateToProps = (state: IAppState): IWidgetProps => ({
     settings: state.settingsState
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
+const mapDispatchToProps = (dispatch: Dispatch<any>): IWidgetProps => ({
     actions: bindActionCreators(SettingsActions, dispatch)
 });
 

@@ -84,8 +84,8 @@ module.exports = {
         cssLoader,
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: 'assets/index.html',
-            favicon: 'assets/favicon.ico',
+            template: path.join(__dirname, 'assets/index.html'),
+            favicon: path.join(__dirname, 'assets/favicon.ico'),
             showErrors: true,
             hash: true
         }),
