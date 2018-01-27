@@ -7,10 +7,13 @@ interface ICityButtonProps {
 }
 
 export class CityButton extends React.Component<ICityButtonProps, {}> {
-    handleClick = () => {
+
+    // Handlers
+    private  handleClick = (): void => {
         this.props.onCityClick(this.props.city);
     }
-    render(): JSX.Element {
+
+    public render(): JSX.Element {
         const { city, enabled } = this.props;
         return (
             <button onClick={this.handleClick} disabled={!enabled}>{ city }</button>

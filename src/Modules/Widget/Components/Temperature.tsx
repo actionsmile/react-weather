@@ -8,7 +8,7 @@ interface ITemperatureProps {
 
 export class Temperature extends React.Component<ITemperatureProps, {}>{
 
-    render(): JSX.Element {
+    public render(): JSX.Element {
         const { value, measure } = this.props;
         return (
             <div className="temperature">

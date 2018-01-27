@@ -5,9 +5,9 @@ import { AppReducers } from 'Core/Reducers/AppReducers';
 import { WeatherWidget } from 'Modules/Widget/WeatherWidget';
 
 export class WeatherApp extends React.Component<{}, {}> {
-    store = createStore(AppReducers);
+    private store = createStore(AppReducers);
 
-    render(): JSX.Element {
+    public render(): JSX.Element {
         return (
             <Provider store={ this.store }>
                 <WeatherWidget />

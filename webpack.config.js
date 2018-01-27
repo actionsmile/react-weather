@@ -32,7 +32,7 @@ module.exports = {
     entry: addStyles(),
     output: {
         path: path.join(__dirname, 'build'),
-        filename: 'js/[name].js'
+        filename: 'js/[name].[hash].js'
     },
 
     devServer: {

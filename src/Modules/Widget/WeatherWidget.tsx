@@ -13,8 +13,7 @@ import {
 import * as service from './Service/WeatherService';
 
 class Widget extends React.Component<IWidgetProps, IWidgetState> {
-    static displayName = 'WeatherWidget';
-    cities = ['Москва', 'Madrid', 'Paris', 'London'];
+    private cities = ['Москва', 'Madrid', 'Paris', 'London'];
 
     constructor(props: IWidgetProps) {
         super(props);
@@ -40,6 +39,7 @@ class Widget extends React.Component<IWidgetProps, IWidgetState> {
         }
     }
 
+    // Handlers
     private handleClick = (cityName: string): void => {
         !isEmpty(this.props.actions) && this.props.actions.saveCity(cityName);
     }
